@@ -95,4 +95,25 @@ class Raid extends Base {
 	public $last_scanned;
 }
 
+class Pokemon extends Base {
+	public $encounter_id;
+	public $spawnpoint_id;
+	public $pokemon_id;
+	public $latitude;
+	public $longitude;
+	public $disappear_time;
+	public $individual_attack;
+	public $individual_defense;
+	public $individual_stamina;
+	public $move_1;
+	public $move_2;
+	public $cp;
+	public $cp_multiplier;
+	public $weight;
+	public $height;
+	public $gender;
+	public $form;
+	public $last_modified;
+}
+
 ?>

@@ -63,6 +63,17 @@ foreach($json as $message){
 			->chats($rocket['parse_chats'])
 			->text($str)
 		->send();
+	}elseif($message['type'] == "pokemon"){
+		$pokemon = new \RocketMap\Pokemon($message['message']);
+		$iv = number_format(($pokemon->individual_defense + $pokemon->individual_attack + $pokemon->individual_stamina) / 45 * 100, 1);
+
+		$title = "¡Un " .$pokedex[$pokemon->pokemon_id][0] ."! ";
+		$sub = "Se va a las " .date("H:i:s", $pokemon->disappear_time) .".";
+		$telegram
+			->chats($rocket['parse_chats'])
+			->location($pokemon->latitude, $pokemon->longitude)
+			->venue($title, $sub)
+		->send();
 	}
 }
 ?>
